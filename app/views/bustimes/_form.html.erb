@@ -1,0 +1,21 @@
+<%= form_for(@bustime) do |f| %>
+  <% if @bustime.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bustime.errors.count, "error") %> prohibited this bustime from being saved:</h2>
+
+      <ul>
+      <% @bustime.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.label :routenum, "Enter a Route ID:" %>
+    <%= f.text_field :routenum %><br>
+    <%= f.label :stopid, "Put your Stop IDs here (separated by commas):" %>
+    <%= f.text_field :stopid %><br>
+    <%= f.submit %>
+  </div>
+<% end %>

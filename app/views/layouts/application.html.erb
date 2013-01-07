@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ctatimes</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <script type="text/JavaScript">
+<!--
+function timedRefresh(timeoutPeriod) {
+	
+}
+//   -->
+</script>
+
+<script type="text/javascript">
+// window.onload = function() {
+// /*	set your parameters(
+// number to countdown from, 
+// pause between counts in milliseconds, 
+// function to execute when finished
+// ) 
+// */
+// startCountDown(15, 1000, myFunction);
+// }
+
+// function startCountDown(i, p, f) {
+// //	store parameters
+// var pause = p;
+// var fn = f;
+// //	make reference to div
+// var countDownObj = document.getElementById("countDown");
+// if (countDownObj == null) {
+// //	error
+// alert("div not found, check your id");
+// //	bail
+// return;
+// }
+// countDownObj.count = function(i) {
+// //	write out count
+// countDownObj.innerHTML = i;
+// if (i == 0) {
+// //	execute function
+// fn();
+// //	stop
+// return;
+// }
+// setTimeout(function() {
+// //	repeat
+// countDownObj.count(i - 1);
+// },
+// pause
+// );
+// }
+// //	set it going
+// countDownObj.count(i);
+// }
+
+// function myFunction() {
+// location.reload(true);
+// }
+// </script>
+</head>
+<!-- <body  onload="JavaScript:timedRefresh(5000);" > -->
+<body>
+
+<%= yield %>
+<div id="countDown"></div>
+
+</body>
+</html>

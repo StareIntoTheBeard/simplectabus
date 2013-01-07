@@ -1,0 +1,9 @@
+<% @bustimes.each do |b| %>
+	<h2> Route <%= b.routenum  %> </h2>
+	<% @stops = b.stopid.split(',') %>
+		<% @stops.each do |t| %>
+			<%= getTime(t) %>
+		<% end %>
+<% end %>	
+
+<%= link_to "add a route",  new_bustime_url %>

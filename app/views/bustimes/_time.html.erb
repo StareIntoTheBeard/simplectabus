@@ -1,0 +1,9 @@
+<% @doc['html']['body']['bustime_response']['prd'].each do |t| %>
+	<%= t['stpnm'] %> <br>
+	<%= t['rtdir'] %><br>
+	<%= distance_of_time_in_words(t['prdtm'].to_time(:local), Time.now)%> <br>
+	<br><br>
+<% end %>
+
+
+<!-- route 72 bus stops 902,17000 -->
