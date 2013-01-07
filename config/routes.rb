@@ -1,5 +1,7 @@
 Ctatimes::Application.routes.draw do
 
+  resources :settings
+
   resources :bustimes
 
   root :to => 'bustimes#index'

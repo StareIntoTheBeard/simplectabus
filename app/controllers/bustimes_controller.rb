@@ -4,6 +4,7 @@ class BustimesController < ApplicationController
   require 'nokogiri'
 require 'open-uri'
 require 'active_support/core_ext/hash/conversions'
+before_filter :getKey, :only => :index
   def index
     @bustimes = Bustime.all
 
@@ -88,4 +89,10 @@ require 'active_support/core_ext/hash/conversions'
       format.json { head :no_content }
     end
   end
+
+  private
+    def getKey
+    @key = Setting.find_by_name('apikey')
+  end
+  
 end

@@ -11,13 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130107012735) do
+ActiveRecord::Schema.define(:version => 20130107024410) do
 
   create_table "bustimes", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "stopid"
     t.integer  "routenum"
+  end
+
+  create_table "settings", :force => true do |t|
+    t.string   "name"
+    t.string   "apikey"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

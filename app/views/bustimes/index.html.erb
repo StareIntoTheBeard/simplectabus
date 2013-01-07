@@ -3,10 +3,13 @@
 		<h2> Route <%= b.routenum  %> </h2>
 		<% @stops = b.stopid.split(',') %>
 			<% @stops.each do |t| %>
-				<%= getTime(b.routenum, t) %>
+				<%= getTime(b.routenum, t, @key.apikey) %>
 			<% end %>
 	</div>
 <% end %>	
 <br>
+
+<h3>Refreshing In:</h3>
+<span id="countDown"></span> Seconds.
 
 <%= link_to "add a route",  new_bustime_url %>
