@@ -11,7 +11,10 @@
  *= require_self
  *= require_tree .
  */
-
+body {
+	background: #152130 !important;
+	color:white !important;
+}
 .bustime {
 	display: inline-table;
 	padding: 40px;
