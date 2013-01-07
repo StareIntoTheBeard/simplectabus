@@ -2,13 +2,13 @@
 	<% @doc['html']['body']['bustime_response']['prd'].each do |t| %>
 		<%= t['stpnm'] %> <br>
 		<%= t['rtdir'] %><br>
-		<%= distance_of_time_in_words(t['prdtm'].to_time(:local), Time.now)%> <br>
+		<%= distance_of_time_in_words(t['prdtm'].to_time().in_time_zone("America/Chicago") + 6.hours, Time.now.in_time_zone("America/Chicago"))%> <br>
 		<br><br>
 	<% end %>
 <% else %>
 	<%= @doc['html']['body']['bustime_response']['prd']['stpnm'] %> <br>
 	<%= @doc['html']['body']['bustime_response']['prd']['rtdir'] %><br>
-	<%= distance_of_time_in_words(@doc['html']['body']['bustime_response']['prd']['prdtm'].to_time(:local), Time.now)%> <br>	<br><br>
+	<%= distance_of_time_in_words(@doc['html']['body']['bustime_response']['prd']['prdtm'].to_time().in_time_zone("America/Chicago") +6.hours, Time.now.in_time_zone("America/Chicago"))%> <br>	<br><br>
 <% end %>
 <!-- route 9 bus stops  17180,6019 -->
 <!-- route 72 bus stops 902,17000 -->
