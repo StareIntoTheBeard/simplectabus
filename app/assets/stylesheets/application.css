@@ -17,6 +17,16 @@ body {
 }
 .bustime {
 	display: inline-table;
-	padding: 40px;
+	padding: 10px 40px 40px 40px;
+	vertical-align: top;
 
+}
+
+.businfo{
+	padding-left:10px;
+	vertical-align: top;
+}
+
+a {
+	color:white !important;
 }

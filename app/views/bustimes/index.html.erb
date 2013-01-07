@@ -1,3 +1,11 @@
+<div class ="businfo">
+	<strong>Refreshing In:</strong>
+	<span id="countDown"></span> Seconds.
+</div>
+<div class="businfo">
+	<strong>Times Retrieved At:</strong>
+	<%= Time.now.strftime("%I:%M %p") %>
+</div>
 <% @bustimes.each do |b| %>
 	<div class="bustime">
 		<h2> Route <%= b.routenum  %> </h2>
@@ -9,7 +17,6 @@
 <% end %>	
 <br>
 
-<h3>Refreshing In:</h3>
-<span id="countDown"></span> Seconds.
+
 
 <%= link_to "add a route",  new_bustime_url %>
