@@ -4,7 +4,7 @@ class BustimesController < ApplicationController
   require 'nokogiri'
 require 'open-uri'
 require 'active_support/core_ext/hash/conversions'
-before_filter :getKey, :only => :index
+before_filter :getKey
   def index
     @bustimes = Bustime.all
 
@@ -88,6 +88,11 @@ before_filter :getKey, :only => :index
       format.html { redirect_to bustimes_url }
       format.json { head :no_content }
     end
+  end
+
+  def busload
+    @bustimes = Bustime.all
+    render :layout => false
   end
 
   private
