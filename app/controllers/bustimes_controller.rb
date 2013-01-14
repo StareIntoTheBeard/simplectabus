@@ -4,7 +4,10 @@ class BustimesController < ApplicationController
   require 'nokogiri'
   require 'open-uri'
   require 'active_support/core_ext/hash/conversions'
-  before_filter :getKey
+  before_filter :getKey, :only => :busload
+  before_filter :getStops, :only => [:add, :edit]
+
+
   def index
     @bustimes = Bustime.all
 
@@ -97,7 +100,15 @@ class BustimesController < ApplicationController
 
   private
     def getKey
-    @key = Setting.find_by_name('apikey')
-  end
+      @key = Setting.find_by_name('apikey')
+    end
+
+    def getStops
+      @key = Setting.find_by_name('apikey')
+      @stops = "http://www.ctabustracker.com/bustime/api/v1/getroutes?key=" + @key.apikey  
+      stopopen = Nokogiri::HTML(open(@stops))
+      @stophash = Hash.from_xml(stopopen.to_s)
+    end
+
   
 end
