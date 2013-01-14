@@ -3,11 +3,10 @@
 		<h2> Route <%= b.routenum  %>  <%= link_to "Edit", edit_bustime_path(b), :style => 'font-size: 12px !important;' %></h2>
 		<% @stops = b.stopid.split(',') %>
 		<div class="realbustime">
-
-
 			<% @stops.each do |t| %>
- 					<% doc = Nokogiri::HTML(open("http://www.ctabustracker.com/bustime/api/v1/getpredictions?key=kRBbPLQJ5L8GXuCeTdRpKU8Xg&rt=9&stpid=17180")) %>
-		<% @doc = Hash.from_xml(doc.to_s) %>
+				<% @burger = "http://www.ctabustracker.com/bustime/api/v1/getpredictions?key=" + @key.apikey + "&rt=" + b.routenum.to_s + "&stpid=" + t %>
+ 				<% doc = Nokogiri::HTML(open(@burger)) %>
+				<% @doc = Hash.from_xml(doc.to_s) %>
 <% if @doc['html']['body']['bustime_response']['prd'][1] %>
 	<% @doc['html']['body']['bustime_response']['prd'].each do |t| %>
 		<%= t['stpnm'] %> <br>

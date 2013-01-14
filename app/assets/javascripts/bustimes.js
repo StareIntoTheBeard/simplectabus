@@ -1,6 +1,13 @@
 window.onload = function() {
 
-startCountDown(10, 1000, myFunction);
+startCountDown(60, 1000, myFunction);
+  $.ajax({
+      url: '/busload',
+      cache: true,
+      success: function(html){
+        $("#doit").html(html);
+      }
+  });
 }
 
 function startCountDown(i, p, f) {
@@ -35,7 +42,7 @@ countDownObj.count(i);
 function myFunction() {
 // location.reload(true);
 timeView(".realbustime", '/busload')
-startCountDown(10, 1000, myFunction);
+startCountDown(60, 1000, myFunction);
 }
 
 
@@ -63,7 +70,7 @@ function timeView(element, url){
       url: url,
       cache: true,
       success: function(html){
-        $(".realbustime").html(html);
+        $("#doit").html(html);
       }
   });
 }
