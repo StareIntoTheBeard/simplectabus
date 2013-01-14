@@ -7,7 +7,8 @@
 				<% @burger = "http://www.ctabustracker.com/bustime/api/v1/getpredictions?key=" + @key.apikey + "&rt=" + b.routenum.to_s + "&stpid=" + t %>
  				<% doc = Nokogiri::HTML(open(@burger)) %>
 				<% @doc = Hash.from_xml(doc.to_s) %>
-					<% unless @doc['html']['body']['bustime_response'] == nil %>
+					<%= @doc['html']['body']['bustime_response']['error']['msg'] if @doc.to_s.include? 'error' %>
+					<% unless @doc['html']['body']['bustime_response'] == nil or @doc['html']['body']['bustime_response']['error'] %>
 						<% if @doc['html']['body']['bustime_response']['prd'][1] %>
 							<% @doc['html']['body']['bustime_response']['prd'].each do |t| %>
 								<%= t['stpnm'] %> <br>
