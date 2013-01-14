@@ -9,6 +9,8 @@ http://www.transitchicago.com/assets/1/developer_center/BusTime_Developer_API_Gu
 
 
 === Changelog
+v1.2.4 - More error handling.
+
 v1.2.3 - Fixed a case where no bus times were available for a stop and ajax broke.
 
 v1.2.2 - Various code improvements.
