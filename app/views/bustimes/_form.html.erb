@@ -25,7 +25,7 @@
   <div class="actions">
     <%= f.label :routenum, "Choose a route:" %>
     <select name="bustime[routenum]">
-      <option value ="">Choose a Route</option>
+      <option value ="">No route selected.</option>
       <% @stops.each do |d| %>
         <option class="routeval" value="<%= d['rt'] %>"><%= d['rt'] +" - " + d['rtnm'] %></option>
       <% end %>
