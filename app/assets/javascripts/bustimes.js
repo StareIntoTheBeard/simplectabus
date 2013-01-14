@@ -71,6 +71,9 @@ function timeView(element, url){
       cache: true,
       success: function(html){
         $("#doit").html(html);
+      },
+      error: function(html){
+        $("#doit").html("Error retrieving times.")
       }
   });
 }
