@@ -1,13 +1,7 @@
 window.onload = function() {
 
 startCountDown(60, 1000, myFunction);
-  $.ajax({
-      url: '/busload',
-      cache: true,
-      success: function(html){
-        $("#doit").html(html);
-      }
-  });
+timeView(".realbustime", "#doit", '/busload');
 }
 
 function startCountDown(i, p, f) {
@@ -40,40 +34,23 @@ countDownObj.count(i);
 }
 
 function myFunction() {
-// location.reload(true);
-timeView(".realbustime", '/busload')
+timeView(".realbustime", "#doit", '/busload');
 startCountDown(60, 1000, myFunction);
 }
 
 
-function timeView(element, url){
+function timeView(element, element2, url){
 
-  $(".realbustime").html('<img src="/assets/ajax-loader.gif">');
-  
-  // $(".buttonstyle").each(function(){
-  //   if($(this).hasClass("active")){
-  //     $(this).toggleClass("active");
-  //   }
-  // });
-
-  // $(element).addClass("active");
-  // $(".buttonstyle").each(function(){
-  //   if($(this).hasClass("active")){
-  //     $(this).attr("disabled","disabled");
-  //   }
-  //   else {
-  //     $(this).removeAttr("disabled", "disabled");
-  //   }
-  // });
+  $(element).html('<img src="/assets/ajax-loader.gif">');
 
   $.ajax({
       url: url,
       cache: true,
       success: function(html){
-        $("#doit").html(html);
+        $(element2).html(html);
       },
       error: function(html){
-        $("#doit").html("Error retrieving times.")
+        $(element2).html("Error retrieving times.")
       }
   });
 }
