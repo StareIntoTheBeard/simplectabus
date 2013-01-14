@@ -1,6 +1,6 @@
 == Simple CTA Bus Tracker
 This is a simple bus tracker you can add bus routes and stop ids through the GUI.
-Stop IDs are gleaned from the getStops api at the moment. Javascript refreshes the browser every minute.
+Stop IDs are gleaned from the getStops api at the moment. Javascript refreshes bus times through ajax call once a minute.
 Run `rake db:seed` to create a blank API Key setting and you'll need your own Bus Tracker API Key to use this which you set at '/settings'.  If you wanna modify this to do something sexier like use better environment variables or yaml, be my guest.
 
 That's about it.
