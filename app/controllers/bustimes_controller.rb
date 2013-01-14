@@ -2,9 +2,9 @@ class BustimesController < ApplicationController
   # GET /bustimes
   # GET /bustimes.json
   require 'nokogiri'
-require 'open-uri'
-require 'active_support/core_ext/hash/conversions'
-before_filter :getKey
+  require 'open-uri'
+  require 'active_support/core_ext/hash/conversions'
+  before_filter :getKey
   def index
     @bustimes = Bustime.all
 

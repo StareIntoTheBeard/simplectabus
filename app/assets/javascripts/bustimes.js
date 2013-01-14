@@ -1,41 +1,41 @@
 window.onload = function() {
 
-startCountDown(60, 1000, myFunction);
-timeView(".realbustime", "#doit", '/busload');
+  startCountDown(60, 1000, myFunction);
+  timeView(".realbustime", "#doit", '/busload');
 }
 
 function startCountDown(i, p, f) {
 
-var pause = p;
-var fn = f;
+  var pause = p;
+  var fn = f;
 
-var countDownObj = document.getElementById("countDown");
-if (countDownObj == null) {
-return;
-}
-countDownObj.count = function(i) {
+  var countDownObj = document.getElementById("countDown");
+  if (countDownObj == null) {
+  return;
+  }
+  countDownObj.count = function(i) {
 
-countDownObj.innerHTML = i;
-if (i == 0) {
+  countDownObj.innerHTML = i;
+  if (i == 0) {
 
-fn();
+  fn();
 
-return;
-}
-setTimeout(function() {
+  return;
+  }
+  setTimeout(function() {
 
-countDownObj.count(i - 1);
-},
-pause
-);
-}
+  countDownObj.count(i - 1);
+  },
+  pause
+  );
+  }
 
-countDownObj.count(i);
+  countDownObj.count(i);
 }
 
 function myFunction() {
-timeView(".realbustime", "#doit", '/busload');
-startCountDown(60, 1000, myFunction);
+  timeView(".realbustime", "#doit", '/busload');
+  startCountDown(60, 1000, myFunction);
 }
 
 
