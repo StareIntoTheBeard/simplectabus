@@ -105,9 +105,10 @@ class BustimesController < ApplicationController
 
     def getStops
       @key = Setting.find_by_name('apikey')
-      @stops = "http://www.ctabustracker.com/bustime/api/v1/getroutes?key=" + @key.apikey  
-      stopopen = Nokogiri::HTML(open(@stops))
-      @stophash = Hash.from_xml(stopopen.to_s)
+      @url = "http://www.ctabustracker.com/bustime/api/v1/getroutes?key=" + @key.apikey  
+      stopopen = Nokogiri::HTML(open(@url))
+      stophash = Hash.from_xml(stopopen.to_s)
+      @stops = stophash['html']['body']['bustime_response']['route']
     end
 
   

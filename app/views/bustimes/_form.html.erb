@@ -11,13 +11,25 @@
     </div>
   <% end %>
 
-<% @stophash.each do |d| %>
- <%= 1%>
- <%end %>
+  <%# f.collection_select(:routenum, @stops['rt'], :first, :first) %>
 
+  <script type ="text/javascript">
+    $(document).ready(function(){
+     $(".routeval").filter(function(){
+       if($(this).val() == <%= @bustime.routenum %>){
+        $(this).attr('selected','selected');
+      }
+     });
+    });
+  </script>
   <div class="actions">
-    <%= f.label :routenum, "Enter a Route ID:" %>
-    <%= f.text_field :routenum %><br>
+    <%= f.label :routenum, "Choose a route:" %>
+    <select name="bustime[routenum]">
+      <option value ="">Choose a Route</option>
+      <% @stops.each do |d| %>
+        <option class="routeval" value="<%= d['rt'] %>"><%= d['rt'] +" - " + d['rtnm'] %></option>
+      <% end %>
+    </select><br>
     <%= f.label :stopid, "Put your Stop IDs here (separated by commas):" %>
     <%= f.text_field :stopid %><br>
     <%= f.submit %>
