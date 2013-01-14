@@ -5,7 +5,7 @@ class BustimesController < ApplicationController
   require 'open-uri'
   require 'active_support/core_ext/hash/conversions'
   before_filter :getKey, :only => :busload
-  before_filter :getStops, :only => [:add, :edit]
+  before_filter :getStops, :only => [:new, :edit]
 
 
   def index
